@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import toast from "react-hot-toast";
 import s from "./SearchBar.module.css";
 import { CiSearch } from "react-icons/ci";
 
-function SearchBar({ handleSearch }) {
-  const [inputValue, setInputValue] = useState("");
+interface SearchBarProps {
+  readonly handleSearch: (query: string) => void;
+}
 
-  const handleFormSubmit = (e) => {
+function SearchBar({ handleSearch }: SearchBarProps) {
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     !inputValue
       ? toast.error("Oops! It seems like you forgot to type. 🫤")
       : handleSearch(inputValue);
   };
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const searchQuery = e.target.value.trim();
     setInputValue(searchQuery);
   };

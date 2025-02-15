@@ -1,7 +1,17 @@
 import Modal from "react-modal";
 import s from "./ImageModal.module.css";
 
-function ImageModal({ image, closeModal, isModalOpen }) {
+interface ImageModalProps {
+  readonly image: string;
+  readonly closeModal: () => void;
+  readonly isModalOpen: boolean;
+}
+
+function ImageModal({
+  image,
+  closeModal,
+  isModalOpen,
+}: ImageModalProps): JSX.Element {
   Modal.setAppElement("#root");
 
   return (

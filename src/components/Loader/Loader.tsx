@@ -1,17 +1,16 @@
 import { Audio } from "react-loader-spinner";
 import s from "./Loader.module.css";
 
-function Loader() {
+function Loader(): JSX.Element {
   return (
     <div className={s.loaderBox}>
       <Audio
-        height="80"
-        width="80"
-        radius="9"
+        height={80}
+        width={80}
         color="blue"
-        ariaLabel="three-dots-loading"
-        wrapperStyle
-        wrapperClass
+        ariaLabel="audio-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
       />
     </div>
   );

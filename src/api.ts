@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = "https://api.unsplash.com/";
-
 const KEY = import.meta.env.VITE_KEY;
 
 const api = axios.create({
@@ -11,7 +10,7 @@ const api = axios.create({
   },
 });
 
-export const getImages = (query, page) => {
-  const res = api.get(`search/photos?page=${page}&query=${query}`);
-  return res;
+export const getImages = async <T>(query: string, page: number): Promise<T> => {
+  const res = await api.get<T>(`search/photos?page=${page}&query=${query}`);
+  return res.data;
 };

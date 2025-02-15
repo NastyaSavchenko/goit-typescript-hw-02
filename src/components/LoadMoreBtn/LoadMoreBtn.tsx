@@ -1,9 +1,14 @@
 import s from "./LoadMoreBtn.module.css";
 
-function LoadMoreBtn({ setPage }) {
+interface LoadMoreBtnProps {
+  readonly setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function LoadMoreBtn({ setPage }: LoadMoreBtnProps) {
   const handleLoadMoreClick = () => {
     setPage((prev) => prev + 1);
   };
+
   return (
     <div className={s.box}>
       <button
@@ -11,7 +16,7 @@ function LoadMoreBtn({ setPage }) {
         onClick={handleLoadMoreClick}
         className={s.loadMoreBtn}
       >
-        LoadMoreBtn
+        Load More
       </button>
     </div>
   );

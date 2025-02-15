@@ -1,4 +1,4 @@
-function ErrorMessage() {
+function ErrorMessage(): JSX.Element {
   return (
     <div>
       <p>Something went wrong... try again later</p>
